@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ISP-2022-lab11-12-grupa5.iml" filepath="$PROJECT_DIR$/.idea/ISP-2022-lab11-12-grupa5.iml" />
-      <module fileurl="file://$PROJECT_DIR$/c3-samples/colocviu-demo.iml" filepath="$PROJECT_DIR$/c3-samples/colocviu-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/isp-lab-11-12-master.iml" filepath="$PROJECT_DIR$/.idea/isp-lab-11-12-master.iml" />
     </modules>
   </component>
 </project>
