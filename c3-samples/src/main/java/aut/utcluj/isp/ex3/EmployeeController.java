@@ -1,18 +1,20 @@
 package aut.utcluj.isp.ex3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author stefan
  */
 public class EmployeeController {
+    ArrayList<Employee> EmployeeList = new ArrayList<>();
     /**
      * Add new employee to the list of employees
      *
      * @param employee - employee information
      */
     public void addEmployee(final Employee employee) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        EmployeeList.add(new Employee("Marcel", "Maitare", 6900.00 , "5010404060023" ));
     }
 
     /**
@@ -22,7 +24,11 @@ public class EmployeeController {
      * @return found employee or null if not found
      */
     public Employee getEmployeeByCnp(final String cnp) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Employee ByCnp = EmployeeList.stream()
+                .filter(Employee -> cnp.equals(Employee.getCnp()))
+                .findAny()
+                .orElse(null);
+        return ByCnp;
     }
 
     /**
