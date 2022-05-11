@@ -29,7 +29,7 @@ public class Employee {
     }
 
     public void setSalary(Double salary) {
-        salary = salary;
+        this.salary = salary;
     }
 
     public void setCnp(String cnp) {

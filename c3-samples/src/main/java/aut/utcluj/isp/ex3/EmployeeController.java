@@ -24,11 +24,10 @@ public class EmployeeController {
      * @return found employee or null if not found
      */
     public Employee getEmployeeByCnp(final String cnp) {
-        Employee EmployeeByCnp = EmployeeList.stream()
+        return EmployeeList.stream()
                 .filter(Employee -> cnp.equals(Employee.getCnp()))
                 .findAny()
                 .orElse(null);
-        return EmployeeByCnp;
     }
 
     /**
@@ -43,7 +42,9 @@ public class EmployeeController {
                 .filter(Employee -> cnp.equals(Employee.getCnp()))
                 .findAny()
                 .orElse(null);
-        UpdatedEmployeeByCnp.setSalary(salary);
+
+        if (UpdatedEmployeeByCnp != null)
+            UpdatedEmployeeByCnp.setSalary(salary);
         return UpdatedEmployeeByCnp;
     }
 
@@ -77,7 +78,6 @@ public class EmployeeController {
      * @return - number of registered employees
      */
     public int getNumberOfEmployees() {
-        int size = EmployeeList.size();
-        return size;
+        return EmployeeList.size();
     }
 }
