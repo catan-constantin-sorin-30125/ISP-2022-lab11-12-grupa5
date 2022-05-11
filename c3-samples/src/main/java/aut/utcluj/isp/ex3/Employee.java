@@ -20,6 +20,22 @@ public class Employee {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setSalary(Double salary) {
+        salary = salary;
+    }
+
+    public void setCnp(String cnp) {
+        this.cnp = cnp;
+    }
+
     public String getLastName() {
         return lastName;
     }

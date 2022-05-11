@@ -7,14 +7,14 @@ import java.util.List;
  * @author stefan
  */
 public class EmployeeController {
-    ArrayList<Employee> EmployeeList = new ArrayList<>();
+    List<Employee> EmployeeList = new ArrayList<>();
     /**
      * Add new employee to the list of employees
      *
      * @param employee - employee information
      */
     public void addEmployee(final Employee employee) {
-        EmployeeList.add(new Employee("Marcel", "Maitare", 6900.00 , "5010404060023" ));
+        EmployeeList.add(employee);
     }
 
     /**
@@ -24,11 +24,11 @@ public class EmployeeController {
      * @return found employee or null if not found
      */
     public Employee getEmployeeByCnp(final String cnp) {
-        Employee ByCnp = EmployeeList.stream()
+        Employee EmployeeByCnp = EmployeeList.stream()
                 .filter(Employee -> cnp.equals(Employee.getCnp()))
                 .findAny()
                 .orElse(null);
-        return ByCnp;
+        return EmployeeByCnp;
     }
 
     /**
@@ -39,7 +39,12 @@ public class EmployeeController {
      * @return updated employee
      */
     public Employee updateEmployeeSalaryByCnp(final String cnp, final Double salary) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Employee UpdatedEmployeeByCnp = EmployeeList.stream()
+                .filter(Employee -> cnp.equals(Employee.getCnp()))
+                .findAny()
+                .orElse(null);
+        UpdatedEmployeeByCnp.setSalary(salary);
+        return UpdatedEmployeeByCnp;
     }
 
     /**
@@ -49,7 +54,12 @@ public class EmployeeController {
      * @return deleted employee or null if not found
      */
     public Employee deleteEmployeeByCnp(final String cnp) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Employee EmployeeByCnp = EmployeeList.stream()
+                .filter(Employee -> cnp.equals(Employee.getCnp()))
+                .findAny()
+                .orElse(null);
+        EmployeeList.remove(EmployeeByCnp);
+        return EmployeeByCnp;
     }
 
     /**
@@ -58,7 +68,7 @@ public class EmployeeController {
      * @return current list of employees
      */
     public List<Employee> getEmployees() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return EmployeeList;
     }
 
     /**
@@ -67,6 +77,7 @@ public class EmployeeController {
      * @return - number of registered employees
      */
     public int getNumberOfEmployees() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        int size = EmployeeList.size();
+        return size;
     }
 }
