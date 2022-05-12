@@ -180,23 +180,25 @@ public class EmployeeContollerJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             double salary=Double.parseDouble(JTextPaneSalary.getText());
-            try {
+
                 String cnp = JTextPaneCNP.getText();
-                if (employeeController.getEmployeeByCnp(cnp) != null) {
-                    System.out.println("Error:Employee with given CNP already exists");
-                } else {
-                    if (salary > 0) {
-                        employeeController.addEmployee(new Employee(jTextPaneFirstName.getText(), jTextPaneLastName.getText(), salary, cnp));
-                        employeeController.fireTableDataChanged();
+                if(cnp.length()==0)
+                {
+                    System.out.println("CNP can not be empty");
+                }
+                else {
+                    if (employeeController.getEmployeeByCnp(cnp) != null) {
+                        System.out.println("Error:Employee with given CNP already exists");
                     } else {
-                        System.out.println("Error:Salary must be positive");
+                        if (salary > 0) {
+                            employeeController.addEmployee(new Employee(jTextPaneFirstName.getText(), jTextPaneLastName.getText(), salary, cnp));
+                            employeeController.fireTableDataChanged();
+                        } else {
+                            System.out.println("Error:Salary must be positive");
+                        }
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                throw new NullPointerException("CNP field is empty");
-            }
+
         }
         catch (Exception e)
         {
