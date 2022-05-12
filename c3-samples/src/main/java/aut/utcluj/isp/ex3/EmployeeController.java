@@ -2,11 +2,13 @@ package aut.utcluj.isp.ex3;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.table.AbstractTableModel;
 
 /**
  * @author stefan
  */
-public class EmployeeController {
+public class EmployeeController extends AbstractTableModel {
+    private String[] columns = new String[] {"First Name","Last Name","CNP","Salary"};
     List<Employee> EmployeeList = new ArrayList<>();
     /**
      * Add new employee to the list of employees
@@ -79,5 +81,33 @@ public class EmployeeController {
      */
     public int getNumberOfEmployees() {
         return EmployeeList.size();
+    }
+
+    @Override
+    public int getRowCount() {
+        return EmployeeList.size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return 4;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        Employee employee = EmployeeList.get(rowIndex);
+        
+        switch(columnIndex){
+            case 0:return employee.getFirstName();
+            case 1:return employee.getLastName();
+            case 2:return employee.getCnp();
+            case 3:return employee.getSalary();
+            
+        }
+        return "N/A";
+    }
+    @Override
+    public String getColumnName(int index) {
+        return columns[index];
     }
 }
