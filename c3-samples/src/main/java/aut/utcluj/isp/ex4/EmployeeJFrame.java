@@ -14,9 +14,14 @@ public class EmployeeJFrame extends javax.swing.JFrame {
     /**
      * Creates new form EmployeeJFrame
      */
-    public EmployeeJFrame() {
-        
-        //employee=new Employee("Name","LastName", "1234", 2000.0);
+    public EmployeeJFrame()  {
+        try {
+            employee = new Employee("Andrei", "Popescu", "1234", 2000.0);
+        }
+        catch (NegativeAmountException e)
+        {
+            System.out.println("Salary can't be negative");
+        }
         initComponents();
     }
 
@@ -167,7 +172,7 @@ public class EmployeeJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("BonusMoney:");
+        jLabel6.setText("Money:");
 
         jScrollPane6.setViewportView(jTextPane5);
 

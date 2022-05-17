@@ -7,17 +7,24 @@ public class SalaryInfo {
     /**
      * If is not positive, an {@link NegativeAmountException} exception should be thrown
      *
-     * @param monthlyRevenue
+     * @param monthlyRevenue value of the salary
      */
-    public SalaryInfo(Double monthlyRevenue) {
-        this.monthlyRevenue = monthlyRevenue;
+    public SalaryInfo(Double monthlyRevenue) throws NegativeAmountException {
+        if(monthlyRevenue>=0) {
+            this.monthlyRevenue = monthlyRevenue;
+            this.totalRevenue = 0d ;
+        }
+        else
+        {
+            throw new NegativeAmountException();
+        }
     }
 
     /**
      * Add incoming salary to total revenue
      */
     public void addSalary() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        totalRevenue+=monthlyRevenue;
     }
 
     /**
@@ -26,8 +33,14 @@ public class SalaryInfo {
      *
      * @param value - money to be added
      */
-    public void addMoney(final Double value) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void addMoney(final Double value) throws NegativeAmountException {
+        if(value>=0) {
+            totalRevenue += value;
+        }
+        else
+        {
+            throw new NegativeAmountException();
+        }
     }
 
     /**
@@ -37,8 +50,20 @@ public class SalaryInfo {
      *
      * @param value - value to be paid
      */
-    public void payTax(final Double value) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void payTax(final Double value) throws NegativeAmountException, NegativeBalanceException {
+        if(value>=0) {
+            if(totalRevenue>=value) {
+                totalRevenue -= value;
+            }
+            else
+            {
+                throw new NegativeBalanceException();
+            }
+        }
+        else
+        {
+            throw new NegativeAmountException();
+        }
     }
 
     public Double getTotalRevenue() {

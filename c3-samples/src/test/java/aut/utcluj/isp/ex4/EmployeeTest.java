@@ -10,7 +10,7 @@ import static org.junit.Assert.fail;
  */
 public class EmployeeTest {
     @Test
-    public void testAddSalary() {
+    public void testAddSalary() throws NegativeAmountException {
         final Employee employee = new Employee("Harvey", "Specter", "1931216244480", 300d);
         assertEquals("Salary should be 0", Double.valueOf(0d), employee.getSalaryInfo().getTotalRevenue());
 
@@ -19,7 +19,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void testAddMoney() {
+    public void testAddMoney() throws NegativeAmountException {
         final Employee employee = new Employee("Harvey", "Specter", "1931216244480", 300d);
         assertEquals("Salary should be 0", Double.valueOf(0d), employee.getSalaryInfo().getTotalRevenue());
 
@@ -28,7 +28,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void testPayTax() {
+    public void testPayTax() throws NegativeAmountException, NegativeBalanceException {
         final Employee employee = new Employee("Harvey", "Specter", "1931216244480", 300d);
         employee.addMoney(100d);
         assertEquals("Salary should be 100", Double.valueOf(100d), employee.getSalaryInfo().getTotalRevenue());
@@ -38,7 +38,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void testEmployeeIsIdentityManagerInstance() {
+    public void testEmployeeIsIdentityManagerInstance() throws NegativeAmountException {
         final Employee employee = new Employee("Harvey", "Specter", "1931216244480", 200D);
         try {
             final String identity = ((IdentityManager)employee).getIdentity();

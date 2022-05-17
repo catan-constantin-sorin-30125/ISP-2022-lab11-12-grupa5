@@ -225,9 +225,10 @@ public class EmployeeContollerJFrame extends javax.swing.JFrame {
         try {
             double salary = Double.parseDouble(JTextPaneSalary.getText());
             if (salary > 0) {
-                employeeController.updateEmployeeSalaryByCnp(JTextPaneCNP.getText(), salary);
-                System.out.println("Salary updated");
+                if(employeeController.updateEmployeeSalaryByCnp(JTextPaneCNP.getText(), salary)!=null) {
+                    System.out.println("Salary updated");
                 employeeController.fireTableDataChanged();
+                }
             } else {
                 System.out.println("Error:Salary must be positive");
             }
