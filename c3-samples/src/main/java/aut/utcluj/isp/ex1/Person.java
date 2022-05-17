@@ -8,6 +8,7 @@ public class Person {
     private String lastName;
 
     public Person(String firstName) {
+        this.lastName = "";
         this.firstName = FirstName;
     }
 
