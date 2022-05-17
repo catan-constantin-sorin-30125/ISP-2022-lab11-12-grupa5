@@ -8,12 +8,12 @@ public class Person {
     private String lastName;
 
     public Person(String firstName) {
-        this.lastName = "";
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.firstName = FirstName;
     }
 
     public Person(String firstName, String lastName) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.lastName = lastName;
+        this.firstName = firstName;
     }
 
     public String getFirstName() {
