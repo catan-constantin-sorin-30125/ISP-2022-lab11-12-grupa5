@@ -42,25 +42,25 @@ public class EmployeeJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordFieldCNP = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        jTextPaneFirstName = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        jTextPaneLastName = new javax.swing.JTextPane();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
+        jTextPaneSalary = new javax.swing.JTextPane();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane4 = new javax.swing.JTextPane();
+        jTextPaneTotalMoney = new javax.swing.JTextPane();
         Show = new java.awt.Checkbox();
         jPanel2 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
+        jButtonAddMoney = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextPane5 = new javax.swing.JTextPane();
-        jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonPayTax = new javax.swing.JButton();
+        jButtonAddSalary = new javax.swing.JButton();
 
         jButton2.setText("jButton1");
 
@@ -76,31 +76,31 @@ public class EmployeeJFrame extends javax.swing.JFrame {
 
         jLabel3.setText("CNP:");
 
-        jPasswordField1.setText("1234567");
-        jPasswordField1.setEditable(false);
+        jPasswordFieldCNP.setText(employee.getCnp());
+        jPasswordFieldCNP.setEditable(false);
 
         //jTextPane1.setText(employee.getFirstName());
-        jTextPane1.setText("Nume");
-        jTextPane1.setEditable(false);
-        jScrollPane1.setViewportView(jTextPane1);
+        jTextPaneFirstName.setText(employee.getFirstName());
+        jTextPaneFirstName.setEditable(false);
+        jScrollPane1.setViewportView(jTextPaneFirstName);
 
         //jTextPane2.setText(employee.getLastName());
-        jTextPane2.setText("AltNume");
-        jTextPane2.setEditable(false);
-        jScrollPane2.setViewportView(jTextPane2);
+        jTextPaneLastName.setText(employee.getLastName());
+        jTextPaneLastName.setEditable(false);
+        jScrollPane2.setViewportView(jTextPaneLastName);
 
         jLabel4.setText("MonthlyRevenue:");
 
         //jTextPane2.setText(employee.getLastName());
-        jTextPane3.setText("2000");
-        jTextPane3.setEditable(false);
-        jScrollPane3.setViewportView(jTextPane3);
+        jTextPaneSalary.setText(employee.getSalaryInfo().getMonthlyRevenue().toString());
+        jTextPaneSalary.setEditable(false);
+        jScrollPane3.setViewportView(jTextPaneSalary);
 
         jLabel5.setText("TotalRevenue:");
 
-        jTextPane4.setText("4000");
-        jTextPane4.setEditable(false);
-        jScrollPane4.setViewportView(jTextPane4);
+        jTextPaneTotalMoney.setText(employee.getSalaryInfo().getTotalRevenue().toString());
+        jTextPaneTotalMoney.setEditable(false);
+        jScrollPane4.setViewportView(jTextPaneTotalMoney);
 
         Show.setLabel("Show");
         Show.addItemListener(new java.awt.event.ItemListener() {
@@ -128,7 +128,7 @@ public class EmployeeJFrame extends javax.swing.JFrame {
                         .addGap(56, 56, 56)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3)
-                    .addComponent(jPasswordField1)
+                    .addComponent(jPasswordFieldCNP)
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane2)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -149,7 +149,7 @@ public class EmployeeJFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordFieldCNP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(Show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -165,10 +165,10 @@ public class EmployeeJFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Employee_Info", jPanel1);
 
-        jButton6.setText("AddMoney");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAddMoney.setText("AddMoney");
+        jButtonAddMoney.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonAddMoneyActionPerformed(evt);
             }
         });
 
@@ -176,17 +176,17 @@ public class EmployeeJFrame extends javax.swing.JFrame {
 
         jScrollPane6.setViewportView(jTextPane5);
 
-        jButton4.setText("PayTax");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonPayTax.setText("PayTax");
+        jButtonPayTax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonPayTaxActionPerformed(evt);
             }
         });
 
-        jButton1.setText("AddSalary");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAddSalary.setText("AddSalary");
+        jButtonAddSalary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAddSalaryActionPerformed(evt);
             }
         });
 
@@ -200,11 +200,11 @@ public class EmployeeJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel6)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1))
+                    .addComponent(jButtonAddSalary))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
+                    .addComponent(jButtonPayTax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAddMoney, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -216,11 +216,11 @@ public class EmployeeJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonAddMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonAddSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPayTax, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
@@ -246,27 +246,39 @@ public class EmployeeJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonAddSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSalaryActionPerformed
+        employee.addSalary();
+        jTextPaneTotalMoney.setText(employee.getSalaryInfo().getTotalRevenue().toString());
+    }//GEN-LAST:event_jButtonAddSalaryActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void jButtonPayTaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPayTaxActionPerformed
+        try {
+            employee.payTax(Double.valueOf(jTextPane5.getText()));
+            jTextPaneTotalMoney.setText(employee.getSalaryInfo().getTotalRevenue().toString());
+        } catch (Exception e) {
+            System.out.println("Can't pay negative tax or not enough money");
+        }
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButtonPayTaxActionPerformed
+
+    private void jButtonAddMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddMoneyActionPerformed
+        try {
+            employee.addMoney(Double.valueOf(jTextPane5.getText()));
+            jTextPaneTotalMoney.setText(employee.getSalaryInfo().getTotalRevenue().toString());
+        } catch (Exception e) {
+            System.out.println("Can't add negative money");
+        }
+    }//GEN-LAST:event_jButtonAddMoneyActionPerformed
 
     private void ShowItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ShowItemStateChanged
         // TODO add your handling code here:
-        if(jPasswordField1.getEchoChar()=='*')
+        if(jPasswordFieldCNP.getEchoChar()=='*')
         {
-        jPasswordField1.setEchoChar((char)0);
+        jPasswordFieldCNP.setEchoChar((char)0);
         }
         else
         {
-        jPasswordField1.setEchoChar('*');    
+        jPasswordFieldCNP.setEchoChar('*');    
         }
     }//GEN-LAST:event_ShowItemStateChanged
 
@@ -307,12 +319,12 @@ public class EmployeeJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Checkbox Show;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButtonAddMoney;
+    private javax.swing.JButton jButtonAddSalary;
+    private javax.swing.JButton jButtonPayTax;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -321,17 +333,17 @@ public class EmployeeJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordFieldCNP;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
-    private javax.swing.JTextPane jTextPane4;
     private javax.swing.JTextPane jTextPane5;
+    private javax.swing.JTextPane jTextPaneFirstName;
+    private javax.swing.JTextPane jTextPaneLastName;
+    private javax.swing.JTextPane jTextPaneSalary;
+    private javax.swing.JTextPane jTextPaneTotalMoney;
     // End of variables declaration//GEN-END:variables
 }
